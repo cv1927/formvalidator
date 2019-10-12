@@ -52,6 +52,7 @@ class LoginPage extends StatelessWidget {
                 _createEmail( bloc ),
                 SizedBox( height: 30.0, ),
                 _createPassword( bloc ),
+                SizedBox( height: 30.0, ),
                 _createButton( bloc ),
               ],
             ),
@@ -128,15 +129,15 @@ class LoginPage extends StatelessWidget {
           elevation: 0.0,
           color: Colors.deepPurple,
           textColor: Colors.white,
-          onPressed: snapshot.hasData ? () => _login(bloc) : null,
+          onPressed: snapshot.hasData ? () => _login(bloc,context) : null,
         );
       },
     );
 
   }
 
-  _login(LoginBloc bloc) {
-
+  _login(LoginBloc bloc, BuildContext context) {
+    Navigator.pushReplacementNamed(context, 'home');
   }
 
   Widget _createBack(BuildContext context) {
